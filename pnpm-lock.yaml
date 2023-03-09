@@ -9,7 +9,9 @@ specifiers:
   '@types/node-fetch': ^2.6.2
   '@unocss/reset': ^0.50.3
   '@vercel/node': ^2.8.0
+  agent-base: ^6.0.2
   astro: ^2.0.15
+  debug: ^4.3.4
   eventsource-parser: ^0.1.0
   fzf: ^0.5.1
   highlight.js: ^11.7.0
@@ -19,6 +21,7 @@ specifiers:
   markdown-it: ^13.0.1
   markdown-it-highlightjs: ^4.0.1
   markdown-it-katex: ^2.0.3
+  ms: ^2.1.3
   node-fetch: ^3.3.0
   punycode: ^2.3.0
   solid-js: ^1.6.11
@@ -30,7 +33,9 @@ dependencies:
   '@astrojs/vercel': 3.1.4_astro@2.0.17
   '@solid-primitives/resize-observer': 2.0.11_solid-js@1.6.11
   '@unocss/reset': 0.50.3
+  agent-base: 6.0.2
   astro: 2.0.17
+  debug: 4.3.4
   eventsource-parser: 0.1.0
   fzf: 0.5.1
   highlight.js: 11.7.0
@@ -40,6 +45,7 @@ dependencies:
   markdown-it: 13.0.1
   markdown-it-highlightjs: 4.0.1
   markdown-it-katex: 2.0.3
+  ms: 2.1.3
   node-fetch: 3.3.0
   solid-js: 1.6.11
 
@@ -3263,6 +3269,10 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+
+  /ms/2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+    dev: false
 
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
