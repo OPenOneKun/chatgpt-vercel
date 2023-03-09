@@ -20,7 +20,6 @@ export const post: APIRoute = async ({ request }) => {
     }
   }
 
-  const https_proxy = import.meta.env.HTTPS_PROXY
   
 
   
