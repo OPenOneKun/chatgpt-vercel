@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro"
-import HttpsProxyAgent from 'https-proxy-agent'
+//本地使用代理时把注释去掉
+//import HttpsProxyAgent from 'https-proxy-agent'
 //import fetch from 'node-fetch'
 import {
   createParser,
@@ -48,9 +49,9 @@ export const post: APIRoute = async context => {
   }
   
 
-  if (https_proxy) {
+  /*if (https_proxy) {
     initOptions['agent'] = HttpsProxyAgent(https_proxy)
-  }
+  }*/
   const completion = await fetch("https://api.openai.com/v1/chat/completions",initOptions)
 
   const stream = new ReadableStream({
