@@ -1,4 +1,6 @@
 import type { APIRoute } from "astro"
+import HttpsProxyAgent from 'https-proxy-agent'
+import fetch from 'node-fetch'
 import {
   createParser,
   ParsedEvent,
@@ -6,6 +8,7 @@ import {
 } from "eventsource-parser"
 
 const localEnv = import.meta.env.OPENAI_API_KEY
+const https_proxy = import.meta.env.HTTPS_PROXY
 const vercelEnv = process.env.OPENAI_API_KEY
 
 const apiKeys = ((localEnv || vercelEnv)?.split(/\s*\|\s*/) ?? []).filter(
@@ -30,7 +33,7 @@ export const post: APIRoute = async context => {
     return new Response("没有输入任何文字")
   }
 
-  const completion = await fetch("https://api.openai.com/v1/chat/completions", {
+  const initOptions = {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${key}`
@@ -41,8 +44,14 @@ export const post: APIRoute = async context => {
       messages,
       temperature,
       stream: true
-    })
-  })
+    }),
+  }
+  
+
+  if (https_proxy) {
+    initOptions['agent'] = HttpsProxyAgent(https_proxy)
+  }
+  const completion = await fetch("https://api.openai.com/v1/chat/completions",initOptions)
 
   const stream = new ReadableStream({
     async start(controller) {
