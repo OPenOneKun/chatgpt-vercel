@@ -28,6 +28,7 @@
     "solid-js": "^1.6.11"
   },
   "devDependencies": {
+    "@types/node-fetch": "^2.6.2",
     "@iconify-json/carbon": "^1.1.16",
     "@types/markdown-it": "^12.2.3",
     "@vercel/node": "^2.8.0",
