@@ -23,5 +23,6 @@ export default defineConfig({
     solidJs()
   ],
   output: "server",
+  external: ['net', 'tls', 'url', 'assert'],
   adapter: vercel()
 })
