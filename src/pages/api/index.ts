@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro"
-import HttpsProxyAgent from 'https-proxy-agent'
 
 
 export const post: APIRoute = async ({ request }) => {
@@ -23,7 +22,9 @@ export const post: APIRoute = async ({ request }) => {
 
   const https_proxy = import.meta.env.HTTPS_PROXY
   
-  const initOptions = {
+
+  
+  const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${key}`,
@@ -38,13 +39,7 @@ export const post: APIRoute = async ({ request }) => {
         }
       ]
     })
-  }
-
-  if (https_proxy) {
-    initOptions['agent'] = HttpsProxyAgent(https_proxy)
-  }
-  
-  const response = await fetch(`https://api.openai.com/v1/chat/completions`, initOptions)
+  })
   let result = await response.json()
   if (result?.error) {
     return {
