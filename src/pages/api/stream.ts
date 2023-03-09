@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro"
 import HttpsProxyAgent from 'https-proxy-agent'
-import fetch from 'node-fetch'
+//import fetch from 'node-fetch'
 import {
   createParser,
   ParsedEvent,
